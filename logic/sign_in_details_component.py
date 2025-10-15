@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from basepage import basepage
+from infra.basepage import BasePage
 from my_account_page import MyAccountPage
 
-class SignInDetailsComponent(basepage, MyAccountPage):
+class SignInDetailsComponent(BasePage, MyAccountPage):
 
 
 

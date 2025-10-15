@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from basepage import basepage
+from infra.basepage import BasePage
 
-class CreditCardComponent(basepage):
+class CreditCardComponent(BasePage):
     CREDIT_CARD_NUMBER = (By.XPATH, "//a[@href='/my-orders']")
     CREDIT_CARD_OWNER = (By.XPATH, "//a[@href='/my-orders']")
     CREDIT_CARD_EXPIRATION_DATE = (By.XPATH, "//a[@href='/my-orders']")

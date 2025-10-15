@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from infra.basepage import basepage
+from infra.basepage import BasePage
 
 
-class MyAccountPage(basepage):
+class MyAccountPage(BasePage):
     MY_ORDERS = (By.XPATH, "//a[text()='My Orders']")
     CHANGE_DETAILS = (By.XPATH, "//a[contains(@href, 'UpdateSignInDetails')]")
     CHANGE_BILLING_ADDRESS = (By.XPATH, "//a[normalize-space(text())='Change Billing Address']")

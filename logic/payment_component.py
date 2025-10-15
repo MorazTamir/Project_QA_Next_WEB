@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from basepage import basepage
+from infra.basepage import BasePage
 
-class PaymentComponent(basepage):
+class PaymentComponent(BasePage):
 
 
 
