@@ -6,10 +6,10 @@ from infra.basepage import BasePage
 
 
 class LoginPage(BasePage):
-    # ELEMENTS (רק XPATH)
+    # ELEMENTS
     EMAIL_USER_INPUT = '//input[@id="username"]'
     PASSWORD_USER_INPUT = '//input[@id="password"]'
-    SIGN_IN_BUTTON = '//*[@id="loginWidget"]/main/section/div/div/div/form/div[2]/button'
+    SIGN_IN_BUTTON = '//button[@data-action-button-primary="true"]'
     REGISTER_BUTTON = '//*[@id="registrationBtn"]'
     COOKIES_REJECT_BTN = '//button[@id="onetrust-reject-all-handler"]'
 

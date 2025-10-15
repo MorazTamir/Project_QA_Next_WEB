@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from basepage import basepage
+from infra.basepage import BasePage
 
-class MyAccountComponent(basepage):
+class MyAccountComponent(BasePage):
 
     MY_ORDERS = (By.XPATH, "//a[text()='My Orders']")
     SAVED_CARDS = (By.XPATH, "//a[contains(@href, 'ManageSavedCards')]")
@@ -15,22 +15,28 @@ class MyAccountComponent(basepage):
         super().__init__(browse)
 
     def open_my_orders(self):
-        self.click(self.MY_ORDERS)
+        self.click_element(self.MY_ORDERS)
 
     def open_saved_cards(self):
-        self.click(self.SAVED_CARDS)
+        self.click_element(self.SAVED_CARDS)
 
     def open_edit_sign_in(self):
-        self.click(self.NEXT_UNLIMITED)
+        self.click_element(self.NEXT_UNLIMITED)
 
     def open_edit_billing(self):
-        self.click(self.SIGN_IN_DETAILS)
+        self.click_element(self.SIGN_IN_DETAILS)
 
-    def open_Contact_Details(self):
-        self.click(self.CONTINUE_SHOPPING )
+    def open_contact_details(self):
+        self.click_element(self.CONTINUE_SHOPPING )
 
     def click_continue_shopping(self):
-        self.click(self.CONTINUE_SHOPPING)
+        self.click_element(self.CONTINUE_SHOPPING)
 
     def sign_out(self):
-        self.click(self.SIGN_OUT)
+        self.click_element(self.SIGN_OUT)
+
+    def get_header_text(self):
+        return self._driver.find_element(By.XPATH, self.MY_ORDERS).text
+
+    def is_sign_out_button_visible(self):
+        return self.is_element_displayed(self.SIGN_OUT)

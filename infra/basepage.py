@@ -1,50 +1,49 @@
-from pydoc import browse
-
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-class basepage:
-    def __init__(self, browse, timeout=10):
-        self._browser = browse()
+
+class BasePage:
+    def __init__(self, driver, timeout=10):
+        self._driver = driver
         self._timeout = timeout
 
     def get_url(self):
-        return self._browser.url
+        return self._driver.current_url
 
     def get_page_title(self):
-        return self._browser.title
+        return self._driver.title
 
     def refresh(self):
-        self._browser.refresh()
+        self._driver.refresh()
 
-    def find_singel_locator(self, locator):
-        return WebDriverWait(self._browser, self._timeout).until(
+    def find_single_locator(self, locator):
+        return WebDriverWait(self._driver, self._timeout).until(
             EC.presence_of_element_located(locator)
         )
 
     def find_all_locators(self, locator):
-        return WebDriverWait(self._browser, self._timeout).until(
+        return WebDriverWait(self._driver, self._timeout).until(
             EC.presence_of_all_elements_located(locator)
         )
 
     def click_element(self, locator):
-        element = WebDriverWait(self._browser, self._timeout).until(
+        element = WebDriverWait(self._driver, self._timeout).until(
             EC.element_to_be_clickable(locator)
         )
         element.click()
 
-    def type_input(self, locator, text, clear_first):
-        element = self.find_singel_locator(locator)
-        if not clear_first:
+    def type_input(self, locator, text, clear_first=True):
+        element = self.find_single_locator(locator)
+        if clear_first:
             element.clear()
         element.send_keys(text)
 
     def get_text_from_element(self, locator):
-        return self.find_singel_locator(locator).text
+        return self.find_single_locator(locator).text
 
     def is_element_displayed(self, locator):
         try:
-            return self.find_singel_locator(locator).is_displayed()
+            return self.find_single_locator(locator).is_displayed()
         except TimeoutException:
             return False
