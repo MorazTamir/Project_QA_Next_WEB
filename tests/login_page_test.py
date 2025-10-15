@@ -2,7 +2,7 @@ import unittest
 
 from infra.browser_wrapper import BrowserWrapperClass
 from logic.login_page import LoginPage
-from logic.my_account_component import MyAccountComponent
+from logic.my_account_page import MyAccountPage
 # from logic.wrong_login_page import WrongLoginPage
 
 class LoginPageTest(unittest.TestCase):
@@ -23,7 +23,7 @@ class LoginPageTest(unittest.TestCase):
         login_page.click_sign_in_button()
         self.driver.implicitly_wait(5)
 
-        my_account = MyAccountComponent(self.driver)
+        my_account = MyAccountPage(self.driver)
         self.assertEqual(my_account.get_header_text(), "My Orders")
         #self.assertTrue(my_account.is_sign_out_button_visible())
 

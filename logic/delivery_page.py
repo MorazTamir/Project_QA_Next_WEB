@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from infra.basepage import BasePage
 
-class Delivery_page(BasePage):
+class DeliveryPage(BasePage):
 
    CONTINUE_TO_PAYMENT = (By.XPATH,"//button[normalize-space(text())='Continue To Payment']")
 

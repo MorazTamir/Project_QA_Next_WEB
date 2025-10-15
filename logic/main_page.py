@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
-from basepage import basepage
+from infra.basepage import BasePage
 from selenium.webdriver import ActionChains
 
-class MainPage(basepage):
+class MainPage(BasePage):
 
 
     HOVER_OVER_WOMEN_HEADER = (By.XPATH, "//div[normalize-space(text())='women']")

@@ -20,23 +20,3 @@ class MyAccountComponent(BasePage):
     def open_saved_cards(self):
         self.click_element(self.SAVED_CARDS)
 
-    def open_edit_sign_in(self):
-        self.click_element(self.NEXT_UNLIMITED)
-
-    def open_edit_billing(self):
-        self.click_element(self.SIGN_IN_DETAILS)
-
-    def open_contact_details(self):
-        self.click_element(self.CONTINUE_SHOPPING )
-
-    def click_continue_shopping(self):
-        self.click_element(self.CONTINUE_SHOPPING)
-
-    def sign_out(self):
-        self.click_element(self.SIGN_OUT)
-
-    def get_header_text(self):
-        return self._driver.find_element(By.XPATH, self.MY_ORDERS).text
-
-    def is_sign_out_button_visible(self):
-        return self.is_element_displayed(self.SIGN_OUT)
