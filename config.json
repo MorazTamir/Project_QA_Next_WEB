@@ -1,0 +1,11 @@
+{
+  "base_url" : "https://auth.next.co.uk",
+  "login_url" : "https://auth.next.co.uk/u/login",
+  "register_url" : "https://www.next.co.uk/secure/account/Register",
+  "favorite_url" : "https://www.next.co.uk/style/su634765/f43848",
+  "browser" : "Chrome",
+  "email": "fanustas@gmail.com",
+  "password" : "can2020fanu",
+  "wrong_email" : "lipem40638@etenx.com",
+  "wrong_password" : "Test1234"
+}
