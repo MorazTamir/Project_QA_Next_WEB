@@ -32,7 +32,13 @@ class LoginPage(BasePage):
         try:
             self._sign_in_button.click()
         except ElementClickInterceptedException:
-            print("Take Screenshot")
+            print("Take Screenshot - Not clicked")
+
+    def click_register_button(self):
+        try:
+            self._register_button.click()
+        except ElementClickInterceptedException:
+            print("Take Screenshot - Not clicked")
 
     def close_cookies_popup(self):
         try:

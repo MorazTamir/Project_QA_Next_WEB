@@ -20,6 +20,7 @@ class RegisterPage(BasePage):
     REGISTER_BUTTON = '//*[@id="SignupButton"]'
     COOKIES_REJECT_BTN = '//button[@id="onetrust-reject-all-handler"]'
     POSTCODE_ERROR = '//*[@id="Postcode-error"]'
+    HEADER_TEXT = '//h2[contains(text(), "Quick Secure Sign Up")]'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -90,3 +91,7 @@ class RegisterPage(BasePage):
         self.fill_house_number(house_number)
         self.fill_postcode(postcode)
         self.click_register_btn()
+
+    def get_header_text(self):
+        return self._driver.find_element(By.XPATH, self.HEADER_TEXT).text
+
