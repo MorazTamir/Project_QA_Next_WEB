@@ -2,6 +2,8 @@ from selenium.common.exceptions import ElementClickInterceptedException, Timeout
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+
 from infra.basepage import BasePage
 
 
@@ -30,9 +32,13 @@ class LoginPage(BasePage):
 
     def click_sign_in_button(self):
         try:
-            self._sign_in_button.click()
+            WebDriverWait(self._driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, self.SIGN_IN_BUTTON))
+            )
+            self._driver.execute_script("arguments[0].scrollIntoView(true);", self._sign_in_button)
+            ActionChains(self._driver).move_to_element(self._sign_in_button).click().perform()
         except ElementClickInterceptedException:
-            print("Take Screenshot - Not clicked")
+            self._driver.execute_script("arguments[0].click();", self._sign_in_button)
 
     def click_register_button(self):
         try:

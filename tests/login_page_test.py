@@ -9,7 +9,7 @@ class LoginPageTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = BrowserWrapperClass()
-        self.driver = self.browser.get_driver('Chrome', 'https://auth.next.co.uk/u/login')
+        self.driver = self.browser.get_driver('Chrome', 'https://www.next.co.il/en')
 
     def test_login_successful(self):
         email = "fanustas@gmail.com"
@@ -23,9 +23,11 @@ class LoginPageTest(unittest.TestCase):
         login_page.click_sign_in_button()
         self.driver.implicitly_wait(5)
 
+
         my_account = MyAccountPage(self.driver)
-        self.assertEqual(my_account.get_header_text(), "My Orders")
-        #self.assertTrue(my_account.is_sign_out_button_visible())
+        #self.driver.implicitly_wait(50)
+        self.assertEqual(my_account.get_my_orders_text(), "My Orders")
+        self.assertTrue(my_account.is_sign_out_button_visible())
 
     # def test_login_error(self):
     #     email = "fanustas@gmail.com"
